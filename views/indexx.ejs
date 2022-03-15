@@ -30,7 +30,18 @@
     /*display: none;*/
     position: absolute;
     top: 20%;
+    font-size: 20px;
 } 
+.ohm{
+  position: absolute;
+  display: flex;
+  top: 8%;
+  font-size: 20px;
+}
+#sto{
+   margin-left: 7px;
+}
+
 
 img{
    
@@ -94,13 +105,15 @@ a:hover{
        <div id="loader">
           <p>Now Loading...</p>
       </div>
-      
-     
- 
+    <div class="ohm">  
+    <div id="versiondi" ><%=quality%> quality</div>
+    <div id="sto"> <%= versi%> ver.</div> 
+    </div>
+
     <p id="disc"></p>
     <div class="push">
-    <a href="/gallery?ver=static">Shuffle</a>
-    <a href="/expla">Setting</a>
+    <a href="/gallery?ver=static&qua=<%=quality%>">Shuffle</a>
+    <a href="/expla?ver=static&qua=<%=quality%>">Settings</a>
     <a href="/">Exit</a>
     </div>
     <!--  <p id="disc0">One out of ten objects randomly displayed</p> -->
@@ -129,17 +142,23 @@ $('a').css('display','block')
 $('#loader').css('display','none') */
 
 $('#loader').css('display','none')
-
+var dots=document.getElementById("versiondi").innerText
+console.log(dots)
 //const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );  
 var syuki=0
 var totalContt=0
 var flame=18
 var hankei=9
-
-var dotjungle=20 //26
+var dotjungle;
+if(dots=="High quality"){
+dotjungle=26
+}else{
+dotjungle=18
+} //26  18
+console.log(dotjungle)
 var under=(dotjungle-1)/2
  
-var random = Math.floor( Math.random() * 10 )+1;
+var random = Math.floor( Math.random() * 10 )+1;//4
 
 
 var whichOne;
@@ -216,8 +235,8 @@ switch(random){
      whichRangeToshow=60
     break;    
     case 6: // the twin stars ok
-      Theinf=["1x(2)-1x+1y(2)-1y+1z(2)-1z<-0.5"] 
-      addvance=["1x(2)+1x+1y(2)+1y+1z(2)+1z<-0.5"] 
+      Theinf=["12x(2)-8x+12y(2)-8y+12z(2)-8z<-1"] 
+      addvance=["12x(2)+8x+12y(2)+8y+12z(2)+8z<-1"] 
       yeah=ahaha(6)//+"\nSpin around just seeing the same view forever. "
       theTitle="The twin stars"
       range=30

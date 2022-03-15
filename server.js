@@ -10,16 +10,19 @@ app.get('/',(req, res) =>{
 })
 app.get('/gallery',(req, res)=>{
     var version=req.query.ver
+    var quality=req.query.qua
     //console.log(version)
     if(version=="static"){
-        res.render('indexx.ejs') 
+        res.render('indexx.ejs',{quality: quality, versi:version}) 
     }else if(version=="dynamic"){
-        res.render('index.ejs')
+        res.render('index.ejs',{quality: quality, versi:version})
     }
     
 })
 app.get('/expla',(req, res)=>{
-    res.render('expl.ejs')
+    var version=req.query.ver
+    var quality=req.query.qua
+    res.render('expl.ejs',{quality: quality, versi:version})
 })
 
 app.listen(process.env.PORT||3000)
