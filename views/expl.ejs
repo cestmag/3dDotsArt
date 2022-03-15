@@ -23,7 +23,7 @@
     margin: 0;
     font-family: 'Khand', sans-serif;
     animation-name:fadeInAnime;
-    animation-duration:2s;
+    animation-duration:0.8s;
     animation-fill-mode:forwards;
     opacity:0; 
 
@@ -44,7 +44,7 @@
 
 a{
     position: absolute;
-    top: 50%;
+    top: 60%;
     margin: 0;
     padding: 5px;
     padding-left: 25px;
@@ -58,6 +58,7 @@ a{
 a:hover{
     background-color: rgb(31, 33, 160);
 }
+
 #disc{
   position: absolute;
   top: 12%;
@@ -67,6 +68,11 @@ a:hover{
   width: 80%;
   
   font-size: 22px;
+}
+.choose{
+    position: absolute;
+    display: flex;
+    top: 50%;
 }
 #discq{
 
@@ -96,13 +102,33 @@ span{
 <body ontouchstart="" >
     
 
-      <p id="disc">Welcom to <span>Random Museum.</span> One work is randomly generated and displayed.</p>
-      
-        <a href="/expla">Enter</a>
+      <p id="disc">If you're a computer user, enjoy <span>Dynamic ver.</span><br> Otherwise, I HIGHLY RECOMMEND <span>Static ver.</span></p>
+      <div class="choose">
+        <label><input type="radio" name="typ" value="static" id="sta" checked>Static ver</label>
+        <label><input type="radio" name="typ" value="dynamic" id="dyn">Dynamic ver</label>
+      </div>
+        <a href="/gallery?ver=static" id="wayy" >Go</a>
       
 
-      <p id="discq">You can see works based on simple equations in Math.</p>
+      <p id="discq">In Dynamic ver, <span>works automatically rotate.</span></p>
          
         <!--  One out of ten works is randomly displayed. -->
+  <script>
+    //var lacon="/gallery?ver=static"
+    window.addEventListener( "DOMContentLoaded" , ()=> {
+ 
+ document.getElementsByName("typ").forEach(
+     r => r.addEventListener("change" ,
+              e => document.getElementById("wayy").setAttribute("href", "/gallery?ver="+e.target.value)//change the url
+         )
+ );
+
+});
+
+
+
+
+
+  </script>      
 </body>
 </html>    

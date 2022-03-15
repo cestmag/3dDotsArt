@@ -21,10 +21,10 @@
     align-items: center;
     text-align: center;
     margin: 0;
-   /* animation-name:fadeInAnime;
+    animation-name:fadeInAnime;
     animation-duration:1s;
     animation-fill-mode:forwards;
-    opacity:0; */
+    opacity:0; 
 }
 #loader{
     /*display: none;*/
@@ -78,7 +78,7 @@ a{
 a:hover{
     color: rgb(182, 18, 18);
 } 
-/*@keyframes fadeInAnime{
+@keyframes fadeInAnime{
   from {
     opacity: 0;
   }
@@ -86,7 +86,7 @@ a:hover{
   to {
     opacity: 1;
   }
-} */
+} 
 </style>
 </head>
 <body  ontouchstart="">
@@ -99,7 +99,7 @@ a:hover{
  
     <p id="disc"></p>
     <div class="push">
-    <a href="/gallery?ver=dynamic">Shuffle</a>
+    <a href="/gallery?ver=static">Shuffle</a>
     <a href="/expla">Setting</a>
     <a href="/">Exit</a>
     </div>
@@ -130,7 +130,7 @@ $('#loader').css('display','none') */
 
 $('#loader').css('display','none')
 
-const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );  
+//const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );  
 var syuki=0
 var totalContt=0
 var flame=18
@@ -159,6 +159,8 @@ var range=0;
 var zcbdt=[] 
 var there=[]
 
+var whichRangeToshow;
+
 // oviously it's much better to use json file but now i'm not motivated enough to do that anymore 
 switch(random){ 
     case 1:
@@ -169,6 +171,7 @@ switch(random){
      range=0
      invert=6
      typeOf=9
+     whichRangeToshow=30
     break; 
     case 2: // devil's head
      Theinf=["1x(2)+1y(2)+1z(2)<0.4","40y(2)-20y+40z(2)+20z>-4.2","40y(2)+20y+40z(2)+20z>-4.2","1z<0.5"]
@@ -180,6 +183,7 @@ switch(random){
      typeOf=5
      zcbdt=["1z<0.5","1z>0.3"]
      there=["1z<-0.8","1z>-1"]
+     whichRangeToshow=102
     break;
     case 3: // "4x(2)+4z(2)-1.7z>0",
       Theinf=["1x(2)+1z(2)<1","4x(2)-4x+4z(2)+2z>-1","4x(2)+4x+4z(2)+2z>-1","4x(2)+4z(2)-1.4z>0","1.1x+1z<1.2","-1.1x+1z<1.2","4y<1","4y>-1"]
@@ -189,6 +193,7 @@ switch(random){
       range=0
       invert=3
       typeOf=6
+      whichRangeToshow=330
     break;
     case 4:// Unknown virus in 3XXX  ok
       Theinf=["20x(2)y(2)+20z(2)y(2)+20x(2)z(2)<1","1x(2)+1y(2)+1z(2)>0.3"]
@@ -198,6 +203,7 @@ switch(random){
       range=30
       invert=1
       typeOf=9
+      whichRangeToshow=30
     break;    
     case 5: // heart  ok
      Theinf=["-6y(2)+5y+3z>-1","4x<1","4x>-1","1z-1y<1","1z+1y<1"]
@@ -207,6 +213,7 @@ switch(random){
      range=0
      invert=4
      typeOf=2
+     whichRangeToshow=60
     break;    
     case 6: // the twin stars ok
       Theinf=["1x(2)-1x+1y(2)-1y+1z(2)-1z<-0.5"] 
@@ -216,6 +223,7 @@ switch(random){
       range=30
       invert=1
       typeOf=3
+      whichRangeToshow=80
       /*$("#disc").css('color', 'rgb(12, 216, 12,0.7)')
       $("#disc0").css('color','rgb(12, 216, 12,0.7)') */
     break;    
@@ -227,6 +235,7 @@ switch(random){
       range=45
       invert=3
       typeOf=4
+      whichRangeToshow=220
     break; 
     case 8:// Saturn   ok
       Theinf=["1y(2)+1x(2)<1","3y(2)+3x(2)>1","6z<1","6z>-1"]
@@ -237,7 +246,7 @@ switch(random){
       range=30
       invert=1
       typeOf=7
-     
+      whichRangeToshow=120
     break;
     case 9://double rings    ok
       Theinf=["2y(2)+2x(2)+1y<1","16y(2)+16x(2)+8y>3","4z<1","4z>-1"]
@@ -247,6 +256,7 @@ switch(random){
       range=45
       invert=1
       typeOf=8
+      whichRangeToshow=45 //ok
     break;
     case 10: // the beginning of the universe ★★★★★★★★★★ ok
        Theinf=["2.5z(2)+2.5x(2)-1y(2)<0.05","6z(2)+6x(2)-1y(2)>0.05"]
@@ -256,6 +266,7 @@ switch(random){
        range=45
        invert=2
        typeOf=1
+       whichRangeToshow=65
     break;   
 
 }
@@ -273,9 +284,10 @@ var leen=coldplay[1];//型約束
 
 
 roop()//async
-async function roop(){ 
-while(true){//32
- for(var dw=0; dw<=1080; dw=dw+5){
+function roop(){ 
+//32
+    var dw=whichRangeToshow   
+ 
     var thesizeOf=window.innerWidth/2
     var nwantiti=window.innerHeight/2
 
@@ -409,7 +421,7 @@ YY=answer(xnokai,YY, "fromis")
               if(xyCollection[Nowcount][0]<0||xyCollection[Nowcount][1]<0){
                   console.log('err damn shit')
               }
-              if(dw==0&&totalContt==0){ 
+              
                 switch(typeOf){
                      case 1: 
                           $('body').append('<img src="pic1.png" alt="a" width="2px" height="2px" >')
@@ -442,7 +454,7 @@ YY=answer(xnokai,YY, "fromis")
                 }
                 $('img').eq(Nowcount).attr('id',Nowcount)
                
-              }
+              
              
           
         var version;
@@ -559,18 +571,18 @@ YY=answer(xnokai,YY, "fromis")
           
           
           
-         await sleep(50)//0.01
+         //await sleep(50)//0.01
 　　　　　
       
         
-        } 
-        syuki+=1
+        
+      /*  syuki+=1
 
         if(syuki>=4){
           syuki=0
         }
-        totalContt+=1;
-        }
+        totalContt+=1; */
+        
         
     }
               
