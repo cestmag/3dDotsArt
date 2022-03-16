@@ -41,6 +41,11 @@
 #sto{
    margin-left: 7px;
 }
+.paper{
+  position: relative;
+  top: 50%;
+  height: 40%;
+}
 
 
 img{
@@ -76,11 +81,11 @@ img{
    
     position: absolute;
     display: flex; 
-    top: 92%;
+    top: 94%;
 }
 a{
     
-    padding-left: 15px;
+    padding-left: 17px;
     text-decoration: none;
     font-size: 18px;
     color: rgb(255, 255, 255);
@@ -109,7 +114,7 @@ a:hover{
     <div id="versiondi" ><%=quality%> quality</div>
     <div id="sto"> <%= versi%> ver.</div> 
     </div>
-
+     <div class="paper"></div>
     <p id="disc"></p>
     <div class="push">
     <a href="/gallery?ver=static&qua=<%=quality%>">Shuffle</a>
@@ -130,7 +135,6 @@ $('a').css('display','none') */
 
 
 
-
 //$(window).on('load', function() {});
 window.onload=function(){
 /*$('img').css('display','block')
@@ -140,7 +144,10 @@ $('.push').css('display','block')
 $('a').css('display','block')
 
 $('#loader').css('display','none') */
+//displayyeah();
 
+
+//function displayyeah(){
 $('#loader').css('display','none')
 var dots=document.getElementById("versiondi").innerText
 console.log(dots)
@@ -158,7 +165,7 @@ dotjungle=18
 console.log(dotjungle)
 var under=(dotjungle-1)/2
  
-var random = Math.floor( Math.random() * 10 )+1;//4
+var random = 4//Math.floor( Math.random() * 10 )+1;//4
 
 
 var whichOne;
@@ -303,6 +310,14 @@ var leen=coldplay[1];//型約束
 
 
 roop()//async
+
+/*window.addEventListener('DOMContentLoaded', function(){
+  window.addEventListener('resize', function(){
+    console.log("yesss"+whichRangeToshow)
+    roop()
+  });
+});  */
+
 function roop(){ 
 //32
     var dw=whichRangeToshow   
@@ -433,8 +448,8 @@ YY=answer(xnokai,YY, "fromis")
             
            var xy=answer(threevaroTwo, xyzOnPlane,"xy");
             
-              xyCollection[Nowcount][0]=100*xy[0]+thesizeOf;
-              xyCollection[Nowcount][1]=100*xy[1]+nwantiti;
+              xyCollection[Nowcount][0]=100*xy[0]//+thesizeOf;
+              xyCollection[Nowcount][1]=100*xy[1]//+nwantiti;
               xyCollection[Nowcount][2]=Math.sqrt((x-c1)*(x-c1)+(y-c2)*(y-c2)+(z-c3)*(z-c3));
               
               if(xyCollection[Nowcount][0]<0||xyCollection[Nowcount][1]<0){
@@ -443,32 +458,34 @@ YY=answer(xnokai,YY, "fromis")
               
                 switch(typeOf){
                      case 1: 
-                          $('body').append('<img src="pic1.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="pic1.png" alt="a" width="2px" height="2px" >')
                      break;
 
                      case 2:
-                          $('body').append('<img src="reddd.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="reddd.png" alt="a" width="2px" height="2px" >')
                      break;
                      case 3:
-                          $('body').append('<img src="pin.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="pin.png" alt="a" width="2px" height="2px" >')
                      break;  
                      case 4:
-                          $('body').append('<img src="ola.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="ola.png" alt="a" width="2px" height="2px" >')
                      break;  
                      case 5:
-                          $('body').append('<img src="ask.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="ask.png" alt="a" width="2px" height="2px" >')
                      break; 
                      case 6:
-                          $('body').append('<img src="bad.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="bad.png" alt="a" width="2px" height="2px" >')
                      break;
                      case 7:
-                          $('body').append('<img src="mixed.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="mixed.png" alt="a" width="2px" height="2px" >')
                      break; 
                      case 8:
-                          $('body').append('<img src="no.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="no.png" alt="a" width="2px" height="2px" >')
                      break; 
                      case 9:
-                          $('body').append('<img src="coo.png" alt="a" width="2px" height="2px" >')
+                       
+                          $('.paper').append('<img src="coo.png" alt="a" width="2px" height="2px" >')//body
+                          //console.log("aaaaaa")
                      break;
                 }
                 $('img').eq(Nowcount).attr('id',Nowcount)
@@ -530,7 +547,7 @@ YY=answer(xnokai,YY, "fromis")
               case 1: 
                
                  $('#'+Nowcount).css({'left': xyCollection[Nowcount][0]-1 ,'top':xyCollection[Nowcount][1]-1,'filter':'invert('+(xyCollection[Nowcount][2]-thesmallest)/(theatmost-thesmallest)+')','opacity':1.1-(xyCollection[Nowcount][2]-thesmallest)/(theatmost-thesmallest)})
-            
+              
 
               break;
               case 2:
@@ -541,6 +558,7 @@ YY=answer(xnokai,YY, "fromis")
               if(version==true){  
                    
                    $('#'+Nowcount).css({'left': xyCollection[Nowcount][0]-1 ,'top':xyCollection[Nowcount][1]-1,'filter':'invert(1)','opacity':1.1-(xyCollection[Nowcount][2]-thesmallest)/(theatmost-thesmallest)})
+                 
                    }else{
                      $('#'+Nowcount).css({'left': xyCollection[Nowcount][0]-1 ,'top':xyCollection[Nowcount][1]-1,'filter':'none','opacity':1.1-(xyCollection[Nowcount][2]-thesmallest)/(theatmost-thesmallest)}) 
                    }
@@ -604,7 +622,7 @@ YY=answer(xnokai,YY, "fromis")
         
         
     }
-              
+  //}       
             
 function ahaha(kazu){
     var starline=""
@@ -1081,6 +1099,7 @@ function Shiki(dah, TheX,  TheY,  TheZ ){
     
     return false;
  }
+
 }
 
 </script>

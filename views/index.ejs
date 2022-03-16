@@ -41,6 +41,11 @@
 #sto{
    margin-left: 7px;
 }
+.paper{
+  position: relative;
+  top: 50%;
+  height: 40%;
+}
 img{
    
     position: absolute;
@@ -74,11 +79,11 @@ img{
    
     position: absolute;
     display: flex; 
-    top: 92%;
+    top: 94%;
 }
 a{
     
-    padding-left: 15px;
+    padding-left: 17px;
     text-decoration: none;
     font-size: 18px;
     color: rgb(255, 255, 255);
@@ -107,7 +112,7 @@ a:hover{
         <div id="versiondi" ><%=quality%> quality</div>
         <div id="sto"> <%= versi%> ver.</div> 
         </div>  
-     
+        <div class="paper"></div>
  
     <p id="disc"></p>
     <div class="push">
@@ -294,8 +299,8 @@ roop()//async
 async function roop(){ 
 while(true){//32
  for(var dw=0; dw<=1080; dw=dw+5){
-    var thesizeOf=window.innerWidth/2
-    var nwantiti=window.innerHeight/2
+    //var thesizeOf=window.innerWidth/2
+    //var nwantiti=window.innerHeight/2
 
     var changingy=3*Math.cos(dw*(Math.PI/180))
     var xhh=3*Math.sin(dw*(Math.PI/180))
@@ -420,8 +425,8 @@ YY=answer(xnokai,YY, "fromis")
             
            var xy=answer(threevaroTwo, xyzOnPlane,"xy");
             
-              xyCollection[Nowcount][0]=100*xy[0]+thesizeOf;
-              xyCollection[Nowcount][1]=100*xy[1]+nwantiti;
+              xyCollection[Nowcount][0]=100*xy[0]//+thesizeOf;
+              xyCollection[Nowcount][1]=100*xy[1]//+nwantiti;
               xyCollection[Nowcount][2]=Math.sqrt((x-c1)*(x-c1)+(y-c2)*(y-c2)+(z-c3)*(z-c3));
               
               if(xyCollection[Nowcount][0]<0||xyCollection[Nowcount][1]<0){
@@ -430,32 +435,32 @@ YY=answer(xnokai,YY, "fromis")
               if(dw==0&&totalContt==0){ 
                 switch(typeOf){
                      case 1: 
-                          $('body').append('<img src="pic1.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="pic1.png" alt="a" width="2px" height="2px" >')
                      break;
 
                      case 2:
-                          $('body').append('<img src="reddd.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="reddd.png" alt="a" width="2px" height="2px" >')
                      break;
                      case 3:
-                          $('body').append('<img src="pin.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="pin.png" alt="a" width="2px" height="2px" >')
                      break;  
                      case 4:
-                          $('body').append('<img src="ola.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="ola.png" alt="a" width="2px" height="2px" >')
                      break;  
                      case 5:
-                          $('body').append('<img src="ask.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="ask.png" alt="a" width="2px" height="2px" >')
                      break; 
                      case 6:
-                          $('body').append('<img src="bad.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="bad.png" alt="a" width="2px" height="2px" >')
                      break;
                      case 7:
-                          $('body').append('<img src="mixed.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="mixed.png" alt="a" width="2px" height="2px" >')
                      break; 
                      case 8:
-                          $('body').append('<img src="no.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="no.png" alt="a" width="2px" height="2px" >')
                      break; 
                      case 9:
-                          $('body').append('<img src="coo.png" alt="a" width="2px" height="2px" >')
+                          $('.paper').append('<img src="coo.png" alt="a" width="2px" height="2px" >')
                      break;
                 }
                 $('img').eq(Nowcount).attr('id',Nowcount)
